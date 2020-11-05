@@ -9,7 +9,7 @@
       Match Result:
       <em>{{ latestResult }}</em>
     </h2>
-    <div class="gameScoreContainer">
+    <section class="gameScoreContainer">
       <div class="score">
         <em> Human Score:</em>
           {{ getHumanScore }}
@@ -18,7 +18,7 @@
         <em>Computer Score:</em>
         {{ getComputerScore }}
       </div>
-    </div>
+    </section>
     <div
       class="reset"
       @click="resetGame">

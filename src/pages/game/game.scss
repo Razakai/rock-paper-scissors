@@ -1,14 +1,14 @@
 .gameContainer{
   display: flex;
-  flex-direction: column;
+  flex-direction: column; // flex items stacked in a column
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; // wrap items for smaller display widths
 }
 
 .gameChoiceContainer{
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: row; // create a sub flex box, items displayed in a row
+  flex-wrap: wrap; // wrap items for smaller display widths
   padding: 20px 12px 0;
   justify-content: center;
 }
@@ -28,11 +28,11 @@ em{
 }
 
 .reset{
-  margin: auto;
+  margin: auto; // auto margin automatically sets margin to fit its contents
   border-radius: 15px;
   padding: 15px;
 
-  &:hover {
+  &:hover { // cool tricks
     cursor: pointer;
     border: solid lightblue;
   }

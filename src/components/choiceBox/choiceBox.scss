@@ -1,22 +1,22 @@
 .iconContainer{
-  display: flex;
+  display: flex; // flex box for player choices, set to row by default
   border-color: lightgray;
   border-radius: 15px;
-  justify-content: center;
+  justify-content: center; // center the content in the page
   width: 350px;
   height: 350px;
 
-  @media (max-width : 1200px){
+  @media (max-width : 1200px){ // smaller laptop displays
     width: 250px;
     height: 250px;
   }
 
-  @media (max-width : 800px){
+  @media (max-width : 850px){ // mobile and tablet displays
     width: 150px;
     height: 150px;
   }
 
-  &:hover {
+  &:hover { // cool tricks
     cursor: pointer;
     background-color: rgba(royalblue, .8);
     transition: background-color 0.2s ease-in-out;
