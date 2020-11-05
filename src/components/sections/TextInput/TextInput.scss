@@ -1,0 +1,49 @@
+
+.w-text-input {
+    display: flex;
+    flex-direction: row;
+    height: 32px;
+    min-height: 32px;
+    padding: 0 5px;
+    align-items: center;
+    border: 1px solid lightgrey;
+    border-radius: 25px;
+    background-color: white;
+    color: grey;
+    margin-left: 5px;
+    margin-right: 5px;
+
+    &:active,
+    &:hover,
+    &:focus,
+    &:focus-within,
+    &.w-text-input--has-focus {
+        border-color: lightblue;
+    }
+}
+
+.w-text-input__text-input {
+    flex: 1;
+    background: transparent;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 100%;
+    color: grey;
+    text-indent: 1px;
+    font-family: inherit;
+    outline: none;
+    border: 0;
+    min-width: 0;
+
+    &::placeholder {
+        color: royalblue;
+    }
+
+    &::-ms-input-placeholder { //sass-lint:disable-line no-vendor-prefixes
+        color: lightgrey;
+    }
+
+    &::-ms-clear { //sass-lint:disable-line no-vendor-prefixes
+        display: none;
+    }
+}

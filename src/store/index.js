@@ -6,8 +6,16 @@ export default createStore({
     types: {
       rock: { id: 1 },
       paper: { id: 2 },
-      scissors: { id: 3 }
+      scissors: { id: 3 },
+      users:
+      [
+        {
+          email: 'adamholland12398@gmail.com',
+          password: 'test'
+        }
+      ]
     },
+    isLoggedIn: false,
     humanWins: 0,
     computerWins: 0
   },
@@ -21,6 +29,13 @@ export default createStore({
     [types.RESET_WINS] (store) {
       store.humanWins = 0
       store.computerWins = 0
+      store.isLoggedIn = false
+    },
+    [types.SET_ISLOGGEDIN] (store, status) {
+      store.isLoggedIn = status
+    },
+    [types.CREATE_USER] (store, newUser) {
+      store.types.users.push(newUser)
     }
   },
   actions: {
@@ -32,7 +47,28 @@ export default createStore({
     },
     incrementComputerWins ({ commit, getters }) {
       commit(types.INCREMENT_COMPUTER_WINS, getters.getComputerWins + 1)
+    },
+    login ({ commit, getters }, email, password) {
+      const users = getters.getUsers.some(
+        user => user.email === email && user.password === password
+      )
+      if (users) {
+        commit(types.SET_ISLOGGEDIN, true)
+        return true
+      }
+      return false
+    },
+    createUser ({ commit, getters }, email, password) {
+      const users = getters.getUsers.some(
+        user => user.email === email && user.password === password
+      )
+      if (!users) {
+        commit(types.CREATE_USER, { email, password })
+        return true
+      }
+      return false
     }
+
   },
   getters: {
     getTypes: (state) => {
@@ -45,6 +81,10 @@ export default createStore({
 
     getComputerWins: (state) => {
       return state.computerWins
+    },
+
+    getUsers: (state) => {
+      return state.types.users
     }
   }
 })
