@@ -1,0 +1,24 @@
+.iconContainer{
+  display: flex;
+  border-color: lightgray;
+  border-radius: 15px;
+  justify-content: center;
+  width: 350px;
+  height: 350px;
+
+  @media (max-width : 1200px){
+    width: 250px;
+    height: 250px;
+  }
+
+  @media (max-width : 800px){
+    width: 150px;
+    height: 150px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgba(royalblue, .8);
+    transition: background-color 0.2s ease-in-out;
+  }
+}
