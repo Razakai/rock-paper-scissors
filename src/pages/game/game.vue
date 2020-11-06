@@ -6,8 +6,14 @@
     </article>
     </div>
     <h2 v-if="latestResult != ''">
+      <div v-if="getWinner == ''">
       Match Result:
       <em>{{ latestResult }}</em>
+      <p>You: {{ playerChoice }} Computer: {{ computerChoice }}</p>
+      </div>
+      <div v-else>
+        Winner: {{ getWinner }}
+      </div>
     </h2>
     <section class="gameScoreContainer">
       <div class="score">
