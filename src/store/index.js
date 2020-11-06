@@ -60,7 +60,7 @@ export default createStore({
     },
     createUser ({ commit, getters }, email, password) {
       const users = getters.getUsers.some(
-        user => user.email === email && user.password === password
+        user => user.email === email
       )
       if (!users) {
         commit(types.CREATE_USER, { email, password })
