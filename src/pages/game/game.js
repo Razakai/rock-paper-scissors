@@ -4,7 +4,9 @@ export default {
 
   data: () => {
     return {
-      latestResult: ''
+      latestResult: '',
+      playerChoice: '',
+      computerChoice: ''
     }
   },
 
@@ -21,6 +23,10 @@ export default {
       return this.$store.getters.getComputerWins
     },
 
+    getWinner () {
+      return this.$store.getters.getWinner
+    },
+
     getItems () {
       return this.$store.getters.getTypes
     }
@@ -28,23 +34,30 @@ export default {
 
   methods: {
     incrementScore (id) {
-      const computerMove = this.generateComputerMove()
-      if (id === computerMove) {
-        this.setLatestResult('draw')
-      } else {
-        const battleNum = ((id - 1) === 0) ? 3 : id - 1
-        if (battleNum === computerMove) {
-          this.setLatestResult('win')
-          this.$store.dispatch('incrementHumanWins')
+      if (this.getComputerScore < 10 && this.getHumanScore < 10) {
+        this.playerChoice = (id === 1) ? 'Rock' : ((id === 2) ? 'Paper' : 'Scissors')
+        const computerMove = this.generateComputerMove()
+        this.computerChoice = (computerMove === 1) ? 'Rock' : ((computerMove === 2) ? 'Paper' : 'Scissors')
+
+        if (id === computerMove) {
+          this.setLatestResult('draw')
         } else {
-          this.setLatestResult('loss')
-          this.$store.dispatch('incrementComputerWins')
+          const battleNum = ((id - 1) === 0) ? 3 : id - 1
+          if (battleNum === computerMove) {
+            this.setLatestResult('win')
+            this.$store.dispatch('incrementHumanWins')
+          } else {
+            this.setLatestResult('loss')
+            this.$store.dispatch('incrementComputerWins')
+          }
         }
       }
     },
 
     generateComputerMove () {
-      return Math.floor(Math.random() * 3) + 1
+      const choice = Math.floor(Math.random() * 3) + 1
+
+      return choice
     },
 
     resetGame () {
