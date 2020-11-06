@@ -4,9 +4,12 @@ import * as types from './mutation-types'
 export default createStore({
   state: {
     types: {
-      rock: { id: 1 },
-      paper: { id: 2 },
-      scissors: { id: 3 },
+      choices:
+        {
+          rock: { id: 1 },
+          paper: { id: 2 },
+          scissors: { id: 3 }
+        },
       users:
       [
         {
@@ -72,7 +75,7 @@ export default createStore({
   },
   getters: {
     getTypes: (state) => {
-      return state.types
+      return state.types.choices
     },
 
     getHumanWins: (state) => {
