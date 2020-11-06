@@ -18,17 +18,12 @@ body, html{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  /*background-image: url("./assets/chess.jpg");
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;*/
   min-height: 100vh;
   width: 100%;
-  //position: fixed;
   margin: 0;
 }
 
 h1 {
-  padding: 30px;
+  padding: 10px 30px 30px 30px;
 }
 </style>
