@@ -1,7 +1,7 @@
 .homeLoginContainer{
   display: flex;
-  justify-content: center;
-  margin-top: 98px;
-  width: 100%;
+  justify-content: center; // center the flex contents
+  margin-top: 98px; // set a but of space between flex box and <h1>
+  width: 100%; // take up available space
   height: 100%;
 }

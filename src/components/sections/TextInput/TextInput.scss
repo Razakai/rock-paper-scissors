@@ -15,8 +15,7 @@
     &:active,
     &:hover,
     &:focus,
-    &:focus-within,
-    &.w-text-input--has-focus {
+    &:focus-within, {
         border-color: lightblue;
     }
 }
@@ -35,11 +34,4 @@
         color: royalblue;
     }
 
-    &::-ms-input-placeholder { //sass-lint:disable-line no-vendor-prefixes
-        color: lightgrey;
-    }
-
-    &::-ms-clear { //sass-lint:disable-line no-vendor-prefixes
-        display: none;
-    }
 }
