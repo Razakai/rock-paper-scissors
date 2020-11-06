@@ -5,7 +5,7 @@
       <choice-box @click="incrementScore(item.id)" :choice-id="item.id"></choice-box>
     </article>
     </div>
-    <h2 v-if="latestResult != ''">
+    <h2 class="h2Container" v-if="latestResult != ''">
       <div v-if="getWinner == ''">
       Match Result:
       <em>{{ latestResult }}</em>
