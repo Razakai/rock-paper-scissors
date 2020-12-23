@@ -15,23 +15,31 @@ export default {
     GButton
   },
 
+  computed: {
+    getIsLoggedIn () {
+      return this.$store.getters.getIsLoggedIn
+    }
+  },
+
   methods: {
     async login () {
-      await this.$store.dispatch('login', { email: this.email, password: this.password })
+      if (this.validateInput()) { await this.$store.dispatch('login', { email: this.email, password: this.password }) }
+
       if (this.getIsLoggedIn) {
         await this.$router.push('/game')
       }
+    },
+
+    validateInput () {
+      return this.email.length > 0 && this.password.length > 0
     },
 
     async register () {
-      await this.$store.dispatch('createUser', { email: this.email, password: this.password })
+      if (this.validateInput()) { await this.$store.dispatch('createUser', { email: this.email, password: this.password }) }
+
       if (this.getIsLoggedIn) {
         await this.$router.push('/game')
       }
-    },
-
-    getIsLoggedIn () {
-      return this.$store.getters.getIsLoggedIn
     }
   }
 }
